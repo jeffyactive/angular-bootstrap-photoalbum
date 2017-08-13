@@ -69,7 +69,7 @@ Watch out for the following gotchas which tend to be the source of those _"WTF i
 - use of the wrong quotes (copy-paste from the example if necessary!)
 - incorrect file name (case sensitive, etc.)
 
-You can sanity-check your list by copying everything between _and including_ the square braces __\[ \]__ to a tool such as [JSONLint](https://jsonlint.com/).  If it says "Valid JSON" you're good!
+You can sanity-check your list by copying everything between _and including_ the square braces __\[ ... \]__ to a tool such as [JSONLint](https://jsonlint.com/).  If it says "Valid JSON" you're good!
 
 The following [Creative Commons](https://creativecommons.org/) licenses are currently supported:
 - "cc-by"
@@ -87,7 +87,7 @@ Don't forget to upload the edited list to your web server!
 Edit the __index.html__ file in your favourite text editor.  You'll likely want to edit the following fields:
 
 | Field             | Default                                                |
-| ----------------- | ------------------------------------------------------ |
+|:----------------- |:------------------------------------------------------ |
 | title             | angular-bootstrap-photoalbum                           |
 | meta description  | Simple framework for a web photo album, based on Angular and Bootstrap. |
 | navbar-brand href | https://jeffyactive.github.io/angular-bootstrap-photoalbum |
@@ -96,6 +96,8 @@ Edit the __index.html__ file in your favourite text editor.  You'll likely want 
 | footer name       | Example Brand                                          |
 
 For simplicity, this project uses the default Bootstrap colours and styles.  To update these, edit the __/style/photoalbum.css__ file in your favourite text editor to override the defaults of [Bootstrap](https://getbootstrap.com/docs/3.3/css/).
+
+Don't forget to upload the edited index.html and photoalbum.css to your web server!
 
 
 License
