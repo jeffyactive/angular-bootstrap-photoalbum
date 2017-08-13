@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title> angular-bootstrap-photoalbum </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Simple framework for a web photo album, based on Angular and Bootstrap.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/photoalbum.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="photos/list.js"></script>
+    <script type="text/javascript" src="js/photoalbum.js"></script>
+  </head>
+  <body ng-app="photoalbum">
+    <div ng-controller="PhotoCtrl">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="https://jeffyactive.github.io/angular-bootstrap-photoalbum"> Example Photoalbum </a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a>Photo {{slide.index + 1}} of {{slides.length}}</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <!----- Carousel ----->
+        <div uib-carousel active="active">
+          <div uib-slide ng-repeat="slide in slides track by slide.index"
+               index="slide.index">
+            <img ng-src="{{slide.image}}" class="slide-image">
+          </div>
+        </div>
+        <!----- License and links ----->
+        <div class="well text-center">
+          <!----- Creative Commons Attribution ----->
+          <span ng-if="slides[active].license === 'cc-by'">
+            <p>This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">work</span> <span ng-if="slides[active].attributee"> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">{{slides[active].attributee}}</span></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+            </p>
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+          </span>
+          <!----- Creative Commons Attribution Non-Commercial ----->
+          <span ng-if="slides[active].license === 'cc-by-nc'">
+            <p>This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">work</span> <span ng-if="slides[active].attributee"> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">{{slides[active].attributee}}</span></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+            </p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>
+          </span>
+          <!----- Creative Commons Attribution NoDerivatives ----->
+          <span ng-if="slides[active].license === 'cc-by-nd'">
+            <p>This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">work</span> <span ng-if="slides[active].attributee"> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">{{slides[active].attributee}}</span></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.
+            </p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a>
+          </span>
+          <!----- Creative Commons Attribution Non-Commercial NoDerivatives ----->
+          <span ng-if="slides[active].license === 'cc-by-nc-nd'">
+            <p>This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">work</span> <span ng-if="slides[active].attributee"> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">{{slides[active].attributee}}</span></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+            </p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+          </span>
+          <!----- Creative Commons Attribution ShareAlike ----->
+          <span ng-if="slides[active].license === 'cc-by-sa'">
+            <p>This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">work</span> <span ng-if="slides[active].attributee"> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">{{slides[active].attributee}}</span></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+          </span>
+          <!----- Creative Commons Attribution Non-Commercial ShareAlike ----->
+          <span ng-if="slides[active].license === 'cc-by-nc-sa'">
+            <p>This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/StillImage" rel="dct:type">work</span> <span ng-if="slides[active].attributee"> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">{{slides[active].attributee}}</span></span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+            </p>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+          </span>
+          &nbsp;
+          <a ng-href="{{slides[active].fullsize}}" target="_blank"
+             class="btn btn-default" >Full resolution</a>
+        </div>
+      </div>
+      <footer class="footer">
+        <a href="https://jeffyactive.github.io"
+           target="_blank"> Example Brand </a> &nbsp; | &nbsp;
+        <a href="https://github.com/jeffyactive/angular-bootstrap-photoalbum"
+           target="_blank"> Get the open source code </a>
+      </footer>
+    </div>
+  </body>
+</html>
